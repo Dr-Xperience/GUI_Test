@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QCompleter>
+#include <QCalendarWidget>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -8,14 +9,22 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->dateEdit->setDate(QDate::currentDate());
-//    connect(ui->dateEdit,SIGNAL(dateChanged(QDate)),ui->dateEdit->calendarWidget(),SLOT(setSelectedDate(QDate)));
-//    ui->dateEdit->calendarWidget()->setVisible(true);
-//        ui->dateEdit->activateWindow();
-//    ui->calendarWidget->setVisible(false);
-//    ui->calendarWidget->hide();
+    //    connect(ui->dateEdit,SIGNAL(dateChanged(QDate)),ui->dateEdit->calendarWidget(),SLOT(setSelectedDate(QDate)));
+    //    ui->dateEdit->calendarWidget()->setVisible(true);
+    //        ui->dateEdit->activateWindow();
+    //    ui->calendarWidget->setVisible(false);
+    //    ui->calendarWidget->hide();
     QCompleter *com=ui->comboBox->completer();
     com->setCompletionMode(QCompleter::PopupCompletion);
-ui->calendarWidget->setWindowFlags(Qt::Popup);
+    //ui->calendarWidget->setWindowFlags(Qt::Popup);
+
+
+
+    widget=new QCalendarWidget();
+
+    ui->verticalLayout->addWidget(widget);
+    widget->setWindowFlags(Qt::Popup);
+
 }
 
 MainWindow::~MainWindow()
@@ -25,16 +34,12 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-//    QCalendarWidget widget(this);
-//    widget.setWindowFlags(Qt::Popup);
-//    widget.show();
+    //    ui->calendarWidget->move(ui->pushButton->mapToGlobal(QPoint(0,ui->pushButton->height())));
 
-//    ui->calendarWidget->setParent(this);    
-//        ui->calendarWidget->mapTo(this,QPoint(100,100));
-    ui->calendarWidget->move(ui->pushButton->mapToGlobal(QPoint(0,ui->pushButton->height())));
+    //    ui->calendarWidget->show();
 
-    ui->calendarWidget->show();
+    widget->move(ui->pushButton->mapToGlobal(QPoint(0,ui->pushButton->height())));
+    widget->show();
 
-//    ui->verticalLayout->addWidget();
-
+//    widget->deleteLater();
 }

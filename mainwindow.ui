@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>456</width>
+    <height>93</height>
    </rect>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>456</width>
+    <height>93</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
@@ -80,19 +86,6 @@
      <widget class="QPushButton" name="pushButton">
       <property name="text">
        <string>PushButton</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QCalendarWidget" name="calendarWidget">
-      <property name="gridVisible">
-       <bool>false</bool>
-      </property>
-      <property name="verticalHeaderFormat">
-       <enum>QCalendarWidget::NoVerticalHeader</enum>
-      </property>
-      <property name="navigationBarVisible">
-       <bool>true</bool>
       </property>
      </widget>
     </item>
