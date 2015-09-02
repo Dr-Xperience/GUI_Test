@@ -21,7 +21,7 @@
        <bool>true</bool>
       </property>
       <property name="currentText">
-       <string>Select</string>
+       <string>ONe</string>
       </property>
       <property name="insertPolicy">
        <enum>QComboBox::NoInsert</enum>
@@ -29,6 +29,16 @@
       <item>
        <property name="text">
         <string>ONe</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Arun</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Anu</string>
        </property>
       </item>
       <item>

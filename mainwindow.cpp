@@ -15,7 +15,7 @@ MainWindow::MainWindow(QWidget *parent) :
 //    ui->calendarWidget->hide();
     QCompleter *com=ui->comboBox->completer();
     com->setCompletionMode(QCompleter::PopupCompletion);
-    ui->calendarWidget->setWindowFlags(Qt::Popup);
+ui->calendarWidget->setWindowFlags(Qt::Popup);
 }
 
 MainWindow::~MainWindow()
@@ -29,6 +29,12 @@ void MainWindow::on_pushButton_clicked()
 //    widget.setWindowFlags(Qt::Popup);
 //    widget.show();
 
-//    ui->calendarWidget->setParent(this);
+//    ui->calendarWidget->setParent(this);    
+//        ui->calendarWidget->mapTo(this,QPoint(100,100));
+    ui->calendarWidget->move(ui->pushButton->mapToGlobal(QPoint(0,ui->pushButton->height())));
+
     ui->calendarWidget->show();
+
+//    ui->verticalLayout->addWidget();
+
 }
