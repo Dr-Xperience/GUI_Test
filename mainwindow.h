@@ -14,12 +14,14 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = 0);
+    bool eventFilter(QObject *object, QEvent *event);
     ~MainWindow();
 
 private slots:
     void on_pushButton_clicked();
 
 private:
+    int eventCounter=0;
     Ui::MainWindow *ui;
     QCalendarWidget *widget;
 };
