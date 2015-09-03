@@ -30,6 +30,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->dateEdit->setButtonSymbols(QAbstractSpinBox::NoButtons);
     //    ui->dateEdit->setCalendarPopup(false);
+    ui->dateEdit->calendarWidget()->setDateEditEnabled(true);
+    ui->dateEdit->calendarWidget()->setVerticalHeaderFormat(QCalendarWidget::NoVerticalHeader);
 }
 
 MainWindow::~MainWindow()

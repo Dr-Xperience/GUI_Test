@@ -1,0 +1,5 @@
+# ignore generated .user files,
+*.user*
+*.swp
+# except foo.user which is maintained by hand
+!foo.user
