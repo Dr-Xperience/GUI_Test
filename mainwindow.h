@@ -21,7 +21,7 @@ private slots:
     void on_pushButton_clicked();
 
 private:
-    int eventCounter=0;
+//    int eventCounter=0;
     Ui::MainWindow *ui;
     QCalendarWidget *widget;
 };
