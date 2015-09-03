@@ -15,9 +15,8 @@ MainWindow::MainWindow(QWidget *parent) :
     com->setCompletionMode(QCompleter::PopupCompletion);
 
 
-    //    widget= new QCalendarWidget();
-
-    widget = ui->dateEdit->calendarWidget();
+    widget= new QCalendarWidget();
+    //    widget = ui->dateEdit->calendarWidget();
 
     //    ui->verticalLayout->addWidget(widget);
     widget->setWindowFlags(Qt::Popup);
@@ -27,11 +26,14 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //connecting widget with dateedit
     connect(widget,SIGNAL(clicked(QDate)),ui->dateEdit,SLOT(setDate(QDate)));
-
-    ui->dateEdit->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    //    connect(ui->dateEdit->calendarWidget(),SLOT(setVisible(bool)),widget,SLOT(setVisible(bool)));
+    //    ui->dateEdit->setButtonSymbols(QAbstractSpinBox::NoButtons);
     //    ui->dateEdit->setCalendarPopup(false);
-    ui->dateEdit->calendarWidget()->setDateEditEnabled(true);
-    ui->dateEdit->calendarWidget()->setVerticalHeaderFormat(QCalendarWidget::NoVerticalHeader);
+    //    ui->dateEdit->calendarWidget()->setDateEditEnabled(true);
+    //    ui->dateEdit->calendarWidget()->setVerticalHeaderFormat(QCalendarWidget::NoVerticalHeader);
+    widget->setDateEditEnabled(true);
+    widget->setVerticalHeaderFormat(QCalendarWidget::NoVerticalHeader);
+
 }
 
 MainWindow::~MainWindow()
@@ -55,21 +57,27 @@ bool MainWindow::eventFilter(QObject *object, QEvent *event)
 {
     if (object == ui->dateEdit)
     {
-        //        if (event->type() != QEvent::Paint && event->type() != QEvent::HoverEnter && event->type() != QEvent::HoverLeave && event->type() != QEvent::HoverMove&& event->type() != QEvent::Enter && event->type() != QEvent::Leave)
-        if (event->type() == QEvent::FocusIn || event->type() == QEvent::MouseButtonPress)
+        //                if (event->type() != QEvent::Paint && event->type() != QEvent::HoverEnter && event->type() != QEvent::HoverLeave && event->type() != QEvent::HoverMove&& event->type() != QEvent::Enter && event->type() != QEvent::Leave)
+        //                if (event->type() == QEvent::FocusIn || event->type() == QEvent::MouseButtonRelease)
+        if (event->type() == QEvent::InputMethodQuery)
         {
             //            eventCounter++;
             //            qWarning(QString().number(event->type()).toStdString().c_str());
             //            qWarning(object->objectName().toLatin1().data());
             //                        qWarning(QString().number(eventCounter).toStdString().c_str());
 
-            if(widget->isVisible()==false && ( ((QMouseEvent* )event)->x()< (ui->dateEdit->width()-10)))
+            //            if(widget->isVisible()==false && ( ((QMouseEvent* )event)->x() <= (ui->dateEdit->width()-20)) && ui->dateEdit->calendarWidget()->isVisible()==false)
+            if(widget->isVisible()==false && ui->dateEdit->calendarWidget()->isVisible()==false)
             {
                 widget->move(ui->dateEdit->mapToGlobal(QPoint(0,ui->dateEdit->height())));
-                widget->show();
-                //                ui->dateEdit->clearFocus();
-            }
 
+                widget->show();
+                eventCounter++;
+                qWarning(QString().number(event->type()).toStdString().c_str());
+                qWarning(object->objectName().toLatin1().data());
+                //                qWarning(QString().number(eventCounter).toStdString().c_str());
+
+            }
         }
     }
     return false;

@@ -27,7 +27,7 @@
        <bool>true</bool>
       </property>
       <property name="currentText">
-       <string extracomment="Select">Select</string>
+       <string extracomment="Select">ONe</string>
       </property>
       <property name="insertPolicy">
        <enum>QComboBox::NoInsert</enum>
@@ -70,13 +70,14 @@
      </widget>
     </item>
     <item>
+     <widget class="QCalendarWidget" name="calendarWidget">
+      <property name="verticalHeaderFormat">
+       <enum>QCalendarWidget::NoVerticalHeader</enum>
+      </property>
+     </widget>
+    </item>
+    <item>
      <widget class="QDateEdit" name="dateEdit">
-      <property name="buttonSymbols">
-       <enum>QAbstractSpinBox::NoButtons</enum>
-      </property>
-      <property name="currentSection">
-       <enum>QDateTimeEdit::MonthSection</enum>
-      </property>
       <property name="calendarPopup">
        <bool>true</bool>
       </property>
@@ -86,13 +87,6 @@
      <widget class="QPushButton" name="pushButton">
       <property name="text">
        <string>PushButton</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QCalendarWidget" name="calendarWidget">
-      <property name="verticalHeaderFormat">
-       <enum>QCalendarWidget::NoVerticalHeader</enum>
       </property>
      </widget>
     </item>
